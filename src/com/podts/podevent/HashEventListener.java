@@ -63,6 +63,7 @@ public class HashEventListener<E extends Event> implements EventListener<E> {
 			Set<EventHandler<? extends E>> h = handlers.get(eventClass);
 			if(h == null) continue;
 			for(EventHandler<? extends E> handler : h) {
+				if(e.isCancelled() && !handler.ignoresCancelled()) continue;
 				try {
 					Method m = handler.getClass().getMethod("handle",handler.getEventClass());
 					m.setAccessible(true);
@@ -70,7 +71,6 @@ public class HashEventListener<E extends Event> implements EventListener<E> {
 				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException| NoSuchMethodException | SecurityException e1) {
 					e1.printStackTrace();
 				}
-				if(e.isCancelled()) return;
 			}
 		}
 		
