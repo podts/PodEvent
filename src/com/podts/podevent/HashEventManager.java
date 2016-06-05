@@ -21,6 +21,11 @@ public class HashEventManager implements EventManager {
 		return globalListener.removeEventHandler(handler);
 	}
 	
+	@Override
+	public void removeAllEventHandlers() {
+		globalListener.removeAllEventHandlers();
+	}
+	
 	/**
 	 * Handles the event with only the global event handlers.
 	 */

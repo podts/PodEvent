@@ -76,6 +76,12 @@ public class HashEventListener<E extends Event> implements EventListener<E> {
 		
 	}
 	
+	@Override
+	public void removeAllEventHandlers() {
+		allHandlers.clear();
+		handlers.clear();
+	}
+	
 	public HashEventListener(Class<E> c) {
 		baseEventClass = c;
 		safeHandlers = Collections.unmodifiableSet(allHandlers);

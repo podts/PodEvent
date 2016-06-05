@@ -8,6 +8,8 @@ public interface EventListener<E extends Event> {
 	public boolean addEventHandler(EventHandler<? extends E> handler);
 	public boolean removeEventHandler(EventHandler<? extends E> handler);
 	
+	public void removeAllEventHandlers();
+	
 	public Class<E> getMinimumEventClass();
 	
 	public void handleEvent(E e);
