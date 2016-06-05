@@ -66,11 +66,11 @@ public class HashEventListener<E extends Event> implements EventListener<E> {
 				try {
 					Method m = handler.getClass().getMethod("handle",handler.getEventClass());
 					m.setAccessible(true);
-					m.invoke(handler, eventClass.cast(e));
+					m.invoke(handler, e);
 				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException| NoSuchMethodException | SecurityException e1) {
 					e1.printStackTrace();
 				}
-				if(e.cancelled()) return;
+				if(e.isCancelled()) return;
 			}
 		}
 		

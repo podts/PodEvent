@@ -7,4 +7,8 @@ public interface EventManager extends EventListener<Event> {
 	
 	public void callEvent(Event e);
 	
+	public default Class<Event> getMinimumEventClass() {
+		return Event.class;
+	}
+	
 }

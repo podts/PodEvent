@@ -5,7 +5,7 @@ public abstract class SimpleEvent implements Event {
 	protected boolean cancelled = false;
 	
 	@Override
-	public boolean cancelled() {
+	public boolean isCancelled() {
 		return cancelled;
 	}
 

@@ -2,7 +2,7 @@ package com.podts.podevent;
 
 public interface Event {
 	
-	public boolean cancelled();
+	public boolean isCancelled();
 	public void cancel();
 	
 }
