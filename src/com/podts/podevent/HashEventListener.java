@@ -29,6 +29,7 @@ public class HashEventListener<E extends Event> implements EventListener<E> {
 
 	@Override
 	public boolean addEventHandler(EventHandler<? extends E> handler) {
+		if(handler == null) return false;
 		if(!allHandlers.add(handler)) return false;
 		Class<? extends E> c = handler.getEventClass();
 		Set<EventHandler<? extends E>> h = handlers.get(c);

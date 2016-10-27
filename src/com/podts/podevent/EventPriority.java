@@ -9,7 +9,11 @@ public enum EventPriority {
 	DEFAULT(false),
 	MONITOR(false);
 	
-	public final boolean cancellable;
+	private final boolean cancellable;
+	
+	public final boolean canCancell() {
+		return cancellable;
+	}
 	
 	private EventPriority() {
 		cancellable = true;

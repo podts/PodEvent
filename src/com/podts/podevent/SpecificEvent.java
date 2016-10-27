@@ -1,7 +1,10 @@
 package com.podts.podevent;
 
-public interface SpecificEvent<H extends EventListener<?>> extends Event {
+import java.util.Set;
+
+public interface SpecificEvent extends Event {
 	
-	public H getSpecific();
+	@SuppressWarnings("rawtypes")
+	public Set<? extends EventListener> getSpecific();
 	
 }

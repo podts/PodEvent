@@ -1,6 +1,7 @@
 package com.podts.podevent;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class HashEventManager implements EventManager {
 	
@@ -40,7 +41,13 @@ public class HashEventManager implements EventManager {
 		
 		if(e instanceof SpecificEvent) {
 			SpecificEvent sEvent = (SpecificEvent) e;
-			sEvent.getSpecific().handleEvent(e);
+			
+			Set<? extends EventListener> specifics = sEvent.getSpecific();
+			
+			for(EventListener listener : specifics) {
+				listener.handleEvent(e);
+			}
+			
 		}
 		
 		handleEvent(e);
